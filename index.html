@@ -1,94 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Links</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alpha Business Consulting — Links</title>
+  <meta name="description" content="All official Alpha Business Consulting links in one place." />
+  <meta property="og:title" content="Alpha Business Consulting — Links" />
+  <meta property="og:description" content="All official Alpha Business Consulting links in one place." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./ABC_LOGO.png" />
+  <meta name="theme-color" content="#2d6cdf" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2d6cdf;           /* ABC Blue */
+      --primary-600: #1f4ea8;       /* Darker Blue */
+      --bg: #0b1220;                /* Base dark bg for depth */
+      --card: rgba(255, 255, 255, .08);
+      --text: #e9eef8;
+      --muted: #a8b0bf;
+      --ring: rgba(45,108,223,.35);
+      --btn-text: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,.35), 0 6px 12px rgba(0,0,0,.25);
+    }
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f5f7fb;
+        --card: rgba(255, 255, 255, .6);
+        --text: #1a2234;
+        --muted: #5e6a7e;
+        --ring: rgba(45,108,223,.25);
+        --shadow: 0 12px 30px rgba(21,35,67,.12), 0 6px 16px rgba(21,35,67,.10);
+      }
+    }
 
-<style>
-  :root {
-    --primary: #2d6cdf;      /* ABC Blue */
-    --primary-dark: #1f4ea8; /* Darker Blue */
-    --bg-gradient: linear-gradient(135deg, #fdfbfb, #ebedee);
-    --text-color: #1c1c1c;
-  }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(45,108,223,.15), transparent 60%),
+                  radial-gradient(900px 500px at 110% 10%, rgba(45,108,223,.18), transparent 60%),
+                  linear-gradient(180deg, var(--bg), var(--bg));
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: grid;
+      place-items: center;
+      padding: 36px 16px 48px;
+    }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg-gradient);
-    color: var(--text-color);
-    text-align: center;
-    padding: 40px 20px;
-  }
+    .wrap {
+      width: 100%;
+      max-width: 560px;
+    }
 
-  img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    border: 4px solid var(--primary);
-    box-shadow: 0 0 20px rgba(45, 108, 223, 0.2);
-    object-fit: cover;
-  }
+    .card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(14px) saturate(120%);
+      -webkit-backdrop-filter: blur(14px) saturate(120%);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 28px 22px 22px;
+    }
 
-  h1 {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
+    /* Accent ring */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 24px;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(45,108,223,.22), rgba(255,255,255,0));
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      padding: 1px;
+    }
 
-  p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 25px;
-  }
+    .header {
+      display: grid;
+      place-items: center;
+      gap: 12px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
 
-  .link-button {
-    display: block;
-    background: var(--primary);
-    color: white;
-    padding: 14px 20px;
-    margin: 12px auto;
-    max-width: 320px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    box-shadow: 0 4px 14px rgba(45, 108, 223, 0.3);
-    transition: all 0.3s ease;
-  }
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,.9);
+      box-shadow: 0 0 0 6px rgba(45,108,223,.25), 0 10px 18px rgba(0,0,0,.25);
+      background: #fff;
+    }
 
-  .link-button:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(45, 108, 223, 0.4);
-  }
+    h1 { font-size: 26px; margin: 6px 0 0; letter-spacing: .2px; }
+    .tagline { color: var(--muted); font-size: 14px; margin: 4px 0 2px; }
 
-  footer {
-    margin-top: 40px;
-    font-size: 12px;
-    color: #888;
-  }
-</style>
+    .links {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0 8px;
+    }
+
+    .btn {
+      --btn-bg: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--btn-text);
+      background: var(--btn-bg);
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: .2px;
+      justify-content: center;
+      transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+      box-shadow: 0 10px 24px rgba(45,108,223,.35);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 26px rgba(45,108,223,.45); }
+    .btn:active { transform: translateY(0); }
+    .btn svg { width: 20px; height: 20px; flex: 0 0 20px; }
+
+    .btn.secondary { --btn-bg: #111826; box-shadow: 0 10px 20px rgba(17,24,38,.25); }
+    .btn.light { --btn-bg: #ffffff; color: #111827; box-shadow: 0 10px 20px rgba(0,0,0,.10); border-color: rgba(0,0,0,.06); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .badges { display: flex; gap: 8px; justify-content: center; margin-top: 8px; }
+    .badge { font-size: 11px; padding: 6px 10px; border-radius: 999px; background: rgba(45,108,223,.16); color: var(--text); border: 1px solid rgba(45,108,223,.35); }
+
+    .foot {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 18px;
+    }
+
+    /* Focus ring for accessibility */
+    .btn:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--ring), 0 10px 24px rgba(45,108,223,.35); }
+
+    /* Subtle floating animation */
+    .float { animation: float 6s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    /* Small print links */
+    .small { font-size: 12px; color: var(--muted); text-decoration: none; }
+    .small:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
+  <main class="wrap">
+    <section class="card">
+      <header class="header">
+        <img class="avatar float" src="./ABC_LOGO.png" alt="Alpha Business Consulting logo" />
+        <h1>Alpha Business Consulting</h1>
+        <p class="tagline">Helping businesses grow through smart strategy &amp; proven systems.</p>
+        <div class="badges">
+          <span class="badge">Since 1986</span>
+          <span class="badge">Calgary • Global</span>
+        </div>
+      </header>
 
-  <img src="./ABC_LOFO.png" alt="Profile">
-  <h1>Alpha Business Consulting</h1>
-  <p>Helping businesses grow through smart strategy & proven systems.</p>
+      <div class="links">
+        <a class="btn" href="https://www.instagram.com/abc_inc_/" target="_blank" rel="noopener" aria-label="Instagram">
+          <!-- Instagram icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="1.5"/><path d="M16.5 11.999a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Z" stroke="currentColor" stroke-width="1.5"/><circle cx="18.5" cy="5.5" r="1.5" fill="currentColor"/></svg>
+          Follow on Instagram
+        </a>
 
-  <a class="link-button" href="https://www.instagram.com/abc_inc_/">Instagram</a>
-  <a class="link-button" href="https://m.facebook.com/profile.php?id=100087510721350">Facebook</a>
-  <a class="link-button" href="https://www.tiktok.com/@alpha.business.consultin">TikTok</a>
-  <a class="link-button" href="https://alphabusinessconsulting.ca/">Website</a>
-  <a class="link-button" href="mailto:accounting@alphabusinessconsulting.ca">Email Me</a>
+        <a class="btn" href="https://m.facebook.com/profile.php?id=100087510721350" target="_blank" rel="noopener" aria-label="Facebook">
+          <!-- Facebook icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.5 9H17V6h-2.5c-2.2 0-3.5 1.3-3.5 3.7V12H8v3h3v7h3v-7h2.2l.8-3h-3V9.7c0-.5.2-.7.5-.7Z" fill="currentColor"/></svg>
+          Connect on Facebook
+        </a>
 
-  <footer>
-    © 2025 Alpha Business consulting
-  </footer>
+        <a class="btn" href="https://www.tiktok.com/@alpha.business.consultin" target="_blank" rel="noopener" aria-label="TikTok">
+          <!-- TikTok icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14.5 3v8.5a4.5 4.5 0 1 1-3.2-4.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14.5 5.5a6 6 0 0 0 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Watch on TikTok
+        </a>
 
+        <a class="btn light" href="https://alphabusinessconsulting.ca/" target="_blank" rel="noopener" aria-label="Website">
+          <!-- Globe icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.5-4-9s1.5-6.5 4-9Z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Visit Website
+        </a>
+
+        <div class="grid-2">
+          <a class="btn secondary" href="mailto:accounting@alphabusinessconsulting.ca" aria-label="Email">
+            <!-- Mail icon -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="currentColor" stroke-width="1.5"/><path d="m4 7l8 6l8-6" stroke="currentColor" stroke-width="1.5"/></svg>
+            Email Us
+          </a>
+          <a class="btn secondary" href="https://wa.me/14035550123" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <!-- WhatsApp icon -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12a9 9 0 1 1-16 6l-2 2l2.5-.5A9 9 0 1 1 21 12Z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 9.5c0 4 5 6 5.5 6c.6 0 1.5-1 1.5-1.5c0-.2-.3-.7-.8-1.2c-.4-.4-1.2 0-1.4.1c-.3.1-.5 0-1-.3s-1.4-1-1.9-1.9c-.3-.5-.2-.7-.1-1c.1-.3.3-1-.1-1.4c-.5-.5-1-.8-1.2-.8c-.5 0-1.5.9-1.5 1.5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <p class="foot">© 2025 Alpha Business Consulting • All rights reserved</p>
+      <p style="text-align:center;margin:6px 0 0;">
+        <a class="small" href="mailto:accounting@alphabusinessconsulting.ca?subject=Partnership%20Inquiry">Partnerships</a>
+        •
+        <a class="small" href="https://alphabusinessconsulting.ca/privacy-policy/" target="_blank" rel="noopener">Privacy</a>
+      </p>
+    </section>
+  </main>
 </body>
 </html>
